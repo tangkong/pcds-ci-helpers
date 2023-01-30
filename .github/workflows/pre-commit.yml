@@ -85,6 +85,10 @@ jobs:
         # on master.
         git checkout -b _pre_commit_check_branch
 
+    - name: Update pre-commit config
+      run: |
+        pre-commit autoupdate
+
     - name: Check pre-commit usage
       run: |
         pre-commit run \
