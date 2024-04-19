@@ -84,7 +84,6 @@ jobs:
     name: "Python ${{ inputs.python-version }}: conda"
     runs-on: ubuntu-20.04
     continue-on-error: ${{ inputs.experimental }}
-    permissions: read-all
 
     defaults:
       run:
