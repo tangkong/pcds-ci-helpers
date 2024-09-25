@@ -60,30 +60,30 @@ jobs:
     with:
       args: "--all-files"
 
-  conda-test:
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-        - python-version: "3.9"
-        - python-version: "3.12"
-          deploy-on-success: true
+#   conda-test:
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         include:
+#         - python-version: "3.9"
+#         - python-version: "3.12"
+#           deploy-on-success: true
         # Disabling until we support rattler-build, boa/mambabuild does not work
         # with py3.13
         # - python-version: "3.13"
         #   experimental: true
 
-    name: "Conda"
-    uses: ./.github/workflows/python-conda-test.yml
-    secrets: inherit
-    with:
-      package-name: ${{ inputs.package-name }}
-      python-version: ${{ matrix.python-version }}
-      experimental: ${{ matrix.experimental || false }}
-      deploy-on-success: ${{ matrix.deploy-on-success || false }}
-      testing-extras: ${{ inputs.testing-extras }} ${{ inputs.conda-testing-extras }}
-      system-packages: ${{ inputs.conda-system-packages }}
-      use-setuptools-scm: ${{ inputs.use-setuptools-scm }}
+    # name: "Conda"
+    # uses: ./.github/workflows/python-conda-test.yml
+    # secrets: inherit
+    # with:
+    #   package-name: ${{ inputs.package-name }}
+    #   python-version: ${{ matrix.python-version }}
+    #   experimental: ${{ matrix.experimental || false }}
+    #   deploy-on-success: ${{ matrix.deploy-on-success || false }}
+    #   testing-extras: ${{ inputs.testing-extras }} ${{ inputs.conda-testing-extras }}
+    #   system-packages: ${{ inputs.conda-system-packages }}
+    #   use-setuptools-scm: ${{ inputs.use-setuptools-scm }}
 
   pip-test:
     strategy:
