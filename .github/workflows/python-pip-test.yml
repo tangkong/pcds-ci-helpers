@@ -154,8 +154,10 @@ jobs:
         pip list
 
     - name: Run tests
+      env:
+        QT_DEBUG_PLUGINS: 1
       run: |
-        pytest -v -s\
+        timeout --signal=SIGABRT 10m pytest -v -s\
           --log-file="$HOME/logs/debug_log.txt" \
           --log-format='%(asctime)s.%(msecs)03d %(module)-15s %(levelname)-8s %(threadName)-10s %(message)s' \
           --log-file-date-format='%H:%M:%S' \
