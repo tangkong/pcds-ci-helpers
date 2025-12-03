@@ -32,7 +32,7 @@ on:
         required: false
         type: string
       ci-extras:
-        default: "pip pytest-cov"
+        default: "pip pytest-cov 'coverage=7.11'"
         description: "CI-specific packages to be installed"
         required: false
         type: string
